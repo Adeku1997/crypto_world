@@ -1,6 +1,7 @@
 const INITIAL_STATE = {
   coinHistory: [],
   loading: true,
+  error:''
 };
 
 const coinHistoryReducer = (state = INITIAL_STATE, action) => {
@@ -13,8 +14,13 @@ const coinHistoryReducer = (state = INITIAL_STATE, action) => {
     case "FETCH_COIN_HISTORY_SUCCESS":
       return {
         ...state,
-        coinHistory: action.payload, 
+        coinHistory: action.payload,
         loading: false,
+      };
+    case "FETCH_COIN_HISTORY_FAILED":
+      return {
+        ...state,
+        error: action.payload,
       };
     default:
       return state;
