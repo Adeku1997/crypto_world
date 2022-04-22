@@ -12,8 +12,7 @@ const FetchNews = (newsCategory) => async (dispatch) => {
         headers: {
           "X-BingApis-SDK": "true",
           "X-RapidAPI-Host": "bing-news-search1.p.rapidapi.com",
-          "X-RapidAPI-Key":
-            "62d08bd2ddmsh5bfb8d4d2b25300p151d32jsna5a89e927061",
+          "X-RapidAPI-Key": process.env.REACT_APP_RAPID_API_KEY,
         },
       }
     );

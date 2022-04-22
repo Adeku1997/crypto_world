@@ -5,12 +5,15 @@ const FetchCrypto = (coinId)=>async(dispatch)=>{
         type:"FETCH_CRYPTO",
     });
     try{
-        const {data}= await axios.get(`https://coinranking1.p.rapidapi.com/coin/${coinId}`,{
-            headers:{
-                'X-RapidAPI-Host': 'coinranking1.p.rapidapi.com',
-    'X-RapidAPI-Key': '62d08bd2ddmsh5bfb8d4d2b25300p151d32jsna5a89e927061'
-            }
-        });
+        const { data } = await axios.get(
+          `https://coinranking1.p.rapidapi.com/coin/${coinId}`,
+          {
+            headers: {
+              "X-RapidAPI-Host": "coinranking1.p.rapidapi.com",
+              "X-RapidAPI-Key": process.env.REACT_APP_RAPID_API_KEY,
+            },
+          }
+        );
         dispatch({
         type:"FETCH_CRYPTO_SUCCESS",
         payload:data,
