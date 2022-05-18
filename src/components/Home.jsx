@@ -14,8 +14,11 @@ const Home = () => {
 
   const data = useSelector((state) => state.stat.stats);
   const stats = data?.data?.stats;
- 
-
+ const total = stats?.total
+const totalExchanges = stats?.totalExchanges;
+const totalVol=stats?.total24hVolume;
+const totalMarketCap= stats?.totalMarketCap;
+const totalMarkets = stats?.totalMarkets
   const loading = useSelector((state) => state.stat.loading);
   
 
@@ -32,34 +35,19 @@ const Home = () => {
       </Title>
       <Row>
         <Col span={12}>
-            <Statistic
-              title="Total Cryptocurrencies"
-              value={stats?.total}
-            />
+          <Statistic title="Total Cryptocurrencies" value={millify(total)} />
         </Col>
         <Col span={12}>
-          <Statistic
-            title="Total Exchanges"
-            value={stats?.totalExchanges}
-          />
+          <Statistic title="Total Exchanges" value={millify(totalExchanges)} />
         </Col>
         <Col span={12}>
-          <Statistic
-            title="Total Markets Cap"
-            value={stats?.totalMarketCap}
-          />
+          <Statistic title="Total Markets Cap" value={millify(totalMarketCap)} />
         </Col>
         <Col span={12}>
-          <Statistic
-            title="Total 24h Volume"
-            value={stats?.total24hVolume}
-          />
+          <Statistic title="Total 24h Volume" value={millify(totalVol)} />
         </Col>
         <Col span={12}>
-          <Statistic
-            title="Total Markets"
-            value={stats?.totalMarkets}
-          />
+          <Statistic title="Total Markets" value={millify(totalMarkets)} />
         </Col>
       </Row>
       <div className="home-heading-container">
@@ -70,8 +58,8 @@ const Home = () => {
           <Link to="/cryptocurrencies">show more</Link>
         </Title>
       </div>
-      <Cryptocurrencies limit='10' />
-    
+      <Cryptocurrencies limit="10" />
+
       <div className="home-heading-container">
         <Title level={2} className="home-title">
           Latest Crypto News
@@ -80,7 +68,7 @@ const Home = () => {
           <Link to="/news">show more</Link>
         </Title>
       </div>
-      <News limit='6' />
+      <News limit="6" />
     </>
   );
 };
