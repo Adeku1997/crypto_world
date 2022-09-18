@@ -25,7 +25,7 @@ const App = () => {
               <Route exact path="/">
                 <Home />
               </Route>
-            
+              
               <Route exact path="/cryptocurrencies">
                 <Cryptocurrencies />
               </Route>

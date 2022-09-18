@@ -14,11 +14,11 @@ const Home = () => {
 
   const data = useSelector((state) => state.stat.stats);
   const stats = data?.data?.stats;
- const total = stats?.total
-const totalExchanges = stats?.totalExchanges;
-const totalVol=stats?.total24hVolume;
-const totalMarketCap= stats?.totalMarketCap;
-const totalMarkets = stats?.totalMarkets
+ const total = millify(stats?.total);
+const totalExchanges = millify(stats?.totalExchanges);
+const totalVol= millify(stats?.total24hVolume);
+const totalMarketCap= millify(stats?.totalMarketCap);
+const totalMarkets = millify(stats?.totalMarkets);
   const loading = useSelector((state) => state.stat.loading);
   
 
@@ -35,19 +35,19 @@ const totalMarkets = stats?.totalMarkets
       </Title>
       <Row>
         <Col span={12}>
-          <Statistic title="Total Cryptocurrencies" value={millify(total)} />
+          <Statistic title="Total Cryptocurrencies" value={total} />
         </Col>
         <Col span={12}>
-          <Statistic title="Total Exchanges" value={millify(totalExchanges)} />
+          <Statistic title="Total Exchanges" value={totalExchanges} />
         </Col>
         <Col span={12}>
-          <Statistic title="Total Markets Cap" value={millify(totalMarketCap)} />
+          <Statistic title="Total Markets Cap" value={totalMarketCap} />
         </Col>
         <Col span={12}>
-          <Statistic title="Total 24h Volume" value={millify(totalVol)} />
+          <Statistic title="Total 24h Volume" value={totalVol} />
         </Col>
         <Col span={12}>
-          <Statistic title="Total Markets" value={millify(totalMarkets)} />
+          <Statistic title="Total Markets" value={totalMarkets} />
         </Col>
       </Row>
       <div className="home-heading-container">
